@@ -1,0 +1,189 @@
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+    <div class="col-12 col-lg-6">
+      <img src="/img/blogcover.jpg" width="607" height="510" class="d-block mx-lg-auto img-fluid" loading="lazy" alt="Cooking With Node.js">
+    </div>
+  
+    <div class="col-12 col-lg-6">
+      <h1 class="display-5 fw-bold mb-3">Amazing blogs for your soul</h1>
+      <p class="lead">
+         Hey , Explore our huge selection of blogs; 
+        </p>
+     
+  
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a href="/login" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Blog with us</a>
+        <a href="/explore-random" class="btn btn-outline-secondary btn-lg px-4 me-md-2">Show Random blogs</a>
+      </div>
+  
+    </div>
+  
+  </div>
+  
+  
+  <!-- Categories Start -->
+  
+  
+  <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+  
+  <!-- getting data from the db-->
+    <% if(categories != '') { %>
+      <% categories.forEach(function(category, index) { %>
+        <a href="/categories/<%- category.name %>" class="col text-center category__link">
+          <div class="category__img shadow">
+            <img src="img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+          </div>
+          <div class="pt-1"><%- category.name %></div>
+        </a>
+      <% }) %>
+    <% } %>
+  
+    <a href="/categories" class="col text-center category__link">
+      <!-- <div class="category__img shadow"> -->
+       <!-- <img src="img/blog.jpg" alt="View All Categories" loading="lazy"> -->
+      <!-- </div> -->
+      <div class="pt-1">View All</div>
+    </a>
+  
+  </div>
+  <!-- Categories End -->
+
+  <!-- Latest Start -->
+
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>Latest blogs</h2>
+    <!-- <a href="/explore-latest" class="ms-auto">View More</a> -->
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+    <% if(subjects != '') { %>
+   
+      <% subjects.latest.forEach(function(blog, index){ %>
+      <a href="/blog/<%= blog._id %>" class="col text-center category__link">
+        <div class="category__img category__img--large shadow">
+          <img src="/uploads/<%= blog.image %>" alt="<%= blog.name %>" loading="lazy">
+        </div>
+        <div class="pt-1">Read More</div>
+      </a>
+      <% }) %>
+    <% } else { %>
+      <p>No items found.</p>
+    <% } %>
+  </div>
+
+</section>
+<!-- Latest End -->
+
+<!-- Facts Start -->
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>Facts Blog</h2>
+    <!-- <a href="/categories/Facts" class="ms-auto">View More</a> -->
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(subjects.facts != '') { %>
+      <% subjects.facts.forEach(function(blog, index){ %>
+      <a href="/blog/<%= blog._id %>" class="col text-center category__link">
+        <div class="category__img category__img--large shadow">
+          <img src="/uploads/<%= blog.image %>" alt="<%= blog.name %>" loading="lazy">
+        </div>
+        <!-- <div class="pt-1"><%= blog.name %></div> -->
+      </a>
+      <% }) %>
+    <% } else { %>
+      <p>No items found</p>
+    <% } %>
+  </div>
+</section>
+<!-- Facts End -->
+
+<!-- Experiences Start -->
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>Experiences</h2>
+    <!-- <a href="/categories/Experiences" class="ms-auto">View More</a> -->
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(typeof subjects.experiences !== 'undefined' && subjects.experiences.length > 0) { %>
+      <% subjects.experiences.forEach(function(blog, index){ %>
+      <a href="/blog/<%=blog ._id %>" class="col text-center category__link">
+        <div class="category__img category__img--large shadow">
+          <img src="/uploads/<%= blog.image %>" alt="<%=blog.name %>" loading="lazy">
+        </div>
+        <div class="pt-1"><%= blog.name %></div>
+      </a>
+      <% }) %>
+    <% } else { %>
+      <p>No items found.</p>
+    <% } %>
+  </div>
+</section>
+<!-- experiences End -->
+
+
+
+<!-- Journey Blog -->
+<section class="pb-4 pt-4">
+  <div class="d-flex mb-2 align-items-center">
+    <h2>Journey Blog</h2>
+    <!-- <a href="/categories/Journey" class="ms-auto">View More</a> -->
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <% if(subjects.journey != '') { %>
+      <% subjects.journey.forEach(function(blog, index){ %>
+      <a href="/blog/<%= blog._id %>" class="col text-center category__link">
+        <div class="category__img category__img--large shadow">
+          <img src="/uploads/<%= blog.image %>" alt="<%= blog.name %>" loading="lazy">
+        </div>
+        <div class="pt-1"><%= blog.name %></div>
+      </a>
+      <% }) %>
+    <% } else { %>
+      <p>No items found.</p>
+    <% } %>
+  </div>
+</section>
+<!-- journey End -->
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Submit - Start -->
+  <section class="px-4 py-5 my-5 text-center">
+    <img src="/img/footer.jpg" class="d-block mx-auto mb-4 img-fluid" alt="Publish your recipe for FREE today" width="566" height="208" loading="lazy">
+    <h1 class="display-5 fw-bold">Hey, Share your article today</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Publish your article in front of thousands of people for free.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a href="/submit-blog" class="btn btn-primary btn-dark btn-lg">Submit article</a>
+      </div>
+    </div>
+  </section>
+   
+  <!-- Submit - End -->
